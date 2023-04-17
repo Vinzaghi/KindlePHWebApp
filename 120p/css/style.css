@@ -39,6 +39,11 @@
    background-color: var(--main-color);
 }
 
+@font-face {
+   font-family: ppwl;
+   src: url(fonts/PPWoodland-Bold.woff);
+}
+
 html{
    font-size: 62.5%;
    overflow-x: hidden;
@@ -55,6 +60,7 @@ section{
 }
 
 .heading{
+   font-family: ppwl;
    font-size: 4rem;
    color:var(--black);
    margin-bottom: 2rem;
@@ -176,6 +182,7 @@ section{
 .header .flex .logo{
    font-size: 2.5rem;
    color:var(--white);
+   font-family: ppwl;
 }
 
 .header .flex .logo span{
@@ -239,7 +246,7 @@ section{
 }
 
 .home-bg{
-   background:url(../images/home-bg.png) no-repeat;
+   background: url(../images/homebg1.png) no-repeat;
    background-size: cover;
    background-position: center;
 }
