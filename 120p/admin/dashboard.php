@@ -9,7 +9,6 @@ $admin_id = $_SESSION['admin_id'];
 if(!isset($admin_id)){
    header('location:admin_login.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +30,13 @@ if(!isset($admin_id)){
 
 <section class="dashboard">
 
-   <h1 class="heading">dashboard</h1>
+   <h1 class="heading">Admin Dashboard</h1>
 
    <div class="box-container">
 
       <div class="box">
-         <h3>welcome!</h3>
-         <p><?= $fetch_profile['name']; ?></p>
+         <h3>Welcome!</h3>
+         <p>Admin Name: <?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update profile</a>
       </div>
 
@@ -52,8 +51,8 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>$</span><?= $total_pendings; ?><span>/-</span></h3>
-         <p>total pendings</p>
+         <h3><span>P</span><?= $total_pendings; ?><span>-</span></h3>
+         <p>Pending Orders</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
@@ -68,8 +67,8 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>$</span><?= $total_completes; ?><span>/-</span></h3>
-         <p>completed orders</p>
+         <h3><span>P</span><?= $total_completes; ?><span>-</span></h3>
+         <p>Completed Orders</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
@@ -80,7 +79,7 @@ if(!isset($admin_id)){
             $number_of_orders = $select_orders->rowCount()
          ?>
          <h3><?= $number_of_orders; ?></h3>
-         <p>orders placed</p>
+         <p>Total Orders Placed</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
