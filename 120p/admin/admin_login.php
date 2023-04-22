@@ -19,9 +19,11 @@ if(isset($_POST['submit'])){
       $_SESSION['admin_id'] = $row['id'];
       header('location:dashboard.php');
    }else{
-      $message[] = 'Incorrect Username or Password!';
+      $message[] = 'incorrect username or password!';
    }
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +32,10 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Login</title>
+   <title>login</title>
+
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
    <link rel="stylesheet" href="../css/admin_styles.css">
 
 </head>
@@ -51,16 +55,16 @@ if(isset($_POST['submit'])){
 ?>
 
 <center>
-<img class="kindlelogo" src="kindlelogo.png" width="5%" height="5%">
+<img class="kindlelogo" src="../images/kindlelogo.png" width="5%" height="5%">
 </center>
 
 <section class="form-container">
-   
+
    <form action="" method="post">
       <h3>ADMINISTRATOR LOG IN</h3>
       <input type="text" name="name" required placeholder="Enter your Username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="Enter your Password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="Login Now" class="btn" name="submit">
+      <input type="submit" value="login now" class="btn" name="submit">
    </form>
 
 </section>

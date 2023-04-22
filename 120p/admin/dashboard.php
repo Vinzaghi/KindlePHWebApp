@@ -9,6 +9,7 @@ $admin_id = $_SESSION['admin_id'];
 if(!isset($admin_id)){
    header('location:admin_login.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ if(!isset($admin_id)){
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-   <link rel="stylesheet" href="../css/admin_style.css">
+   <link rel="stylesheet" href="../css/admin_styles.css">
 
 </head>
 <body>
@@ -30,13 +31,13 @@ if(!isset($admin_id)){
 
 <section class="dashboard">
 
-   <h1 class="heading">Admin Dashboard</h1>
+   <h1 class="heading">dashboard</h1>
 
    <div class="box-container">
 
       <div class="box">
-         <h3>Welcome!</h3>
-         <p>Admin Name: <?= $fetch_profile['name']; ?></p>
+         <h3>welcome!</h3>
+         <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">update profile</a>
       </div>
 
@@ -51,8 +52,8 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>P</span><?= $total_pendings; ?><span>-</span></h3>
-         <p>Pending Orders</p>
+         <h3><span>₱</span><?= $total_pendings; ?><span>/-</span></h3>
+         <p>total pendings</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
@@ -67,8 +68,8 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span>P</span><?= $total_completes; ?><span>-</span></h3>
-         <p>Completed Orders</p>
+         <h3><span>₱</span><?= $total_completes; ?><span>/-</span></h3>
+         <p>completed orders</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
@@ -79,11 +80,53 @@ if(!isset($admin_id)){
             $number_of_orders = $select_orders->rowCount()
          ?>
          <h3><?= $number_of_orders; ?></h3>
-         <p>Total Orders Placed</p>
+         <p>orders placed</p>
          <a href="placed_orders.php" class="btn">see orders</a>
       </div>
 
+      <div class="box">
+         <?php
+            $select_products = $conn->prepare("SELECT * FROM `products`");
+            $select_products->execute();
+            $number_of_products = $select_products->rowCount()
+         ?>
+         <h3><?= $number_of_products; ?></h3>
+         <p>products added</p>
+         <a href="products.php" class="btn">see products</a>
+      </div>
 
+      <div class="box">
+         <?php
+            $select_users = $conn->prepare("SELECT * FROM `users`");
+            $select_users->execute();
+            $number_of_users = $select_users->rowCount()
+         ?>
+         <h3><?= $number_of_users; ?></h3>
+         <p>normal users</p>
+         <a href="users_accounts.php" class="btn">see users</a>
+      </div>
+
+      <div class="box">
+         <?php
+            $select_admins = $conn->prepare("SELECT * FROM `admins`");
+            $select_admins->execute();
+            $number_of_admins = $select_admins->rowCount()
+         ?>
+         <h3><?= $number_of_admins; ?></h3>
+         <p>admin users</p>
+         <a href="admin_accounts.php" class="btn">see admins</a>
+      </div>
+
+      <div class="box">
+         <?php
+            $select_messages = $conn->prepare("SELECT * FROM `messages`");
+            $select_messages->execute();
+            $number_of_messages = $select_messages->rowCount()
+         ?>
+         <h3><?= $number_of_messages; ?></h3>
+         <p>new messages</p>
+         <a href="messagess.php" class="btn">see messages</a>
+      </div>
 
    </div>
 

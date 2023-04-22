@@ -15,7 +15,7 @@
 
    <section class="flex">
 
-      <a href="home.php" class="logo">Kindle<span>.</span></a>
+      <a href="home.php" class="logo">Kindle<span></span></a>
 
       <nav class="navbar">
          <a href="home.php">home</a>
