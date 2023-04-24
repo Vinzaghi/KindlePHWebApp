@@ -65,6 +65,7 @@ if(isset($_POST['submit'])){
       <input type="text" name="name" required placeholder="Enter your Username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="pass" required placeholder="Enter your Password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="login now" class="btn" name="submit">
+      <a href="../index.php" class="option-btn">View User Website</a>
    </form>
 
 </section>
