@@ -47,6 +47,12 @@ if(isset($_POST['submit'])){
          $insert_add = $conn->prepare("INSERT INTO `address`(adl1, adl2, city, state, country) VALUES(?,?,?,?,?)");
          $insert_add->execute([$adl1, $adl2, $city, $state, $country]);
          $message[] = 'registered successfully, login now please!';
+
+         $log_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
+         $log_user->execute([$email, $cpass]);
+         $log = $select_user->fetch(PDO::FETCH_ASSOC);
+         $_SESSION['user_id'] = $log['id'];
+         header('location:home.php');
       }
    }
 
