@@ -20,6 +20,16 @@ if(isset($_POST['submit'])){
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
    $cpass = sha1($_POST['cpass']);
    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+   $adl1 = $_POST['adl1'];
+   $adl1 = filter_var($adl1, FILTER_SANITIZE_STRING);
+   $adl2 = $_POST['adl2'];
+   $adl2 = filter_var($adl2, FILTER_SANITIZE_STRING);
+   $city = $_POST['city'];
+   $city = filter_var($city, FILTER_SANITIZE_STRING);
+   $state = $_POST['state'];
+   $state = filter_var($state, FILTER_SANITIZE_STRING);
+   $country = $_POST['country'];
+   $country = filter_var($country, FILTER_SANITIZE_STRING);
 
    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
    $select_user->execute([$email,]);
@@ -33,6 +43,8 @@ if(isset($_POST['submit'])){
       }else{
          $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
          $insert_user->execute([$name, $email, $cpass]);
+         $insert_add = $conn->prepare("INSERT INTO `address`(adl1, adl2, city, state, country) VALUES(?,?,?,?,?)");
+         $insert_add->execute([$adl1, $adl2, $city, $state, $country]);
          $message[] = 'registered successfully, login now please!';
       }
    }
@@ -66,8 +78,13 @@ if(isset($_POST['submit'])){
       <h3>register now</h3>
       <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box">
       <input type="email" name="email" required placeholder="enter your email" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" required placeholder="enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" required placeholder="confirm your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="adl1" required placeholder="Flat Number" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="adl2" required placeholder="Street Name" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="city" required placeholder="City" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="state" required placeholder="State" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="country" required placeholder="Country" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="register now" class="btn" name="submit">
       <p>already have an account?</p>
       <a href="user_login.php" class="option-btn">login now</a>
