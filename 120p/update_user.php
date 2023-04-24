@@ -16,9 +16,22 @@ if(isset($_POST['submit'])){
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $adl1 = $_POST['adl1'];
+   $adl1 = filter_var($adl1, FILTER_SANITIZE_STRING);
+   $adl2 = $_POST['adl2'];
+   $adl2 = filter_var($adl2, FILTER_SANITIZE_STRING);
+   $city = $_POST['city'];
+   $city = filter_var($city, FILTER_SANITIZE_STRING);
+   $state = $_POST['state'];
+   $state = filter_var($state, FILTER_SANITIZE_STRING);
+   $country = $_POST['country'];
+   $country = filter_var($country, FILTER_SANITIZE_STRING);
+
 
    $update_profile = $conn->prepare("UPDATE `users` SET name = ?, email = ? WHERE id = ?");
    $update_profile->execute([$name, $email, $user_id]);
+   //$update_add = $conn->prepare("UPDATE `address` SET adl1 = ?, adl2 = ?, city = ?, state = ?, country = ? WHERE id = ? ");
+   //$update_add->execute([$adl1, $adl2, $city, $state, $country, $user_id]);
 
    $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
    $prev_pass = $_POST['prev_pass'];
@@ -78,6 +91,11 @@ if(isset($_POST['submit'])){
       <input type="password" name="old_pass" placeholder="enter your old password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="new_pass" placeholder="enter your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="cpass" placeholder="confirm your new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="adl1" required placeholder="Flat Number" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="adl2" required placeholder="Street Name" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="city" required placeholder="City" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="state" required placeholder="State" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="text" name="country" required placeholder="Country" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="submit" value="update now" class="btn" name="submit">
    </form>
 
