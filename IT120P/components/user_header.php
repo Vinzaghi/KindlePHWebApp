@@ -63,6 +63,10 @@
          <div class="flex-btn">
             <a href="user_register.php" class="option-btn">register</a>
             <a href="user_login.php" class="option-btn">login</a>
+         </div> 
+         <br>   
+         <div class="flex-btn">
+            <a href="admin/admin_login.php" class="btn">Login as Admin</a>
          </div>
          <?php
             }
