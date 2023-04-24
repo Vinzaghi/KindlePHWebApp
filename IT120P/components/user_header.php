@@ -15,14 +15,14 @@
 
    <section class="flex">
 
-      <a href="index.php" class="logo">Kindle<span></span></a>
+      <a href="index.php" class="logo">Kindle Web App<span></span></a>
 
       <nav class="navbar">
-         <a href="index.php">home</a>
-         <a href="about.php">about</a>
-         <a href="orders.php">orders</a>
-         <a href="shop.php">shop</a>
-         <a href="contact.php">contact</a>
+         <a href="index.php">Home</a>
+         <a href="about.php">About</a>
+         <a href="orders.php">Orders</a>
+         <a href="shop.php">Shop</a>
+         <a href="contact.php">Contact</a>
       </nav>
 
       <div class="icons">
@@ -59,14 +59,10 @@
          <?php
             }else{
          ?>
-         <p>please login or register first!</p>
+         <p>Please Login or Register First!</p>
          <div class="flex-btn">
             <a href="user_register.php" class="option-btn">register</a>
             <a href="user_login.php" class="option-btn">login</a>
-         </div> 
-         <br>   
-         <div class="flex-btn">
-            <a href="admin/admin_login.php" class="btn">Login as Admin</a>
          </div>
          <?php
             }
